@@ -1,68 +1,58 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class menu {
-    private JFrame frame;
+    JFrame frame;
 
     public menu() {
-        // Create frame
         frame = new JFrame("Blackjack Menu");
-        frame.setSize(500, 400); // Adjusted size
+        frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null); // Using absolute layout for better control
-
-        // Set background color
-        frame.getContentPane().setBackground(new Color(34, 139, 34)); // Green background
-
-        // Add title
-        JLabel titleLabel = new JLabel("BLACKJACK-2T");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
-        titleLabel.setForeground(Color.WHITE); // White text color
-        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        titleLabel.setBounds(50, 30, 400, 50); // Position and size
-        frame.add(titleLabel);
-
-        // Create buttons
-        JButton singlePlayerButton = createStyledButton("Single Player");
-        singlePlayerButton.setBounds(150, 100, 200, 50);
-
-        JButton multiplayerButton = createStyledButton("Multiple Players");
-        multiplayerButton.setBounds(150, 180, 200, 50);
-
-        JButton quitButton = createStyledButton("Quit Game");
-        quitButton.setBounds(150, 260, 200, 50);
-
-        // Button actions
-        singlePlayerButton.addActionListener(e -> {
-            frame.dispose(); // Close menu window
-            JOptionPane.showMessageDialog(null, "Single mode not implemented yet!"); // Placeholder
-        });
-
-        multiplayerButton.addActionListener(e -> {
-            frame.dispose(); // Close menu window
-            JOptionPane.showMessageDialog(null, "Multiplayer mode not implemented yet!"); // Placeholder
-        });
-
-        quitButton.addActionListener(e -> System.exit(0)); // Exit the game
-
-        // Add buttons to frame
-        frame.add(singlePlayerButton);
-        frame.add(multiplayerButton);
-        frame.add(quitButton);
-
-        // Center the window and make it visible
         frame.setLocationRelativeTo(null);
+        frame.setLayout(null);
+        frame.getContentPane().setBackground(new Color(53, 101, 77));
+
+        // Title
+        JLabel title = new JLabel("Blackjack Game", JLabel.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 36));
+        title.setForeground(Color.WHITE);
+        title.setBounds(200, 50, 400, 50);
+        frame.add(title);
+
+        // Buttons
+        JButton singlePlayerButton = new JButton("Single Player");
+        JButton multiPlayerButton = new JButton("Multiple Players");
+        JButton quitButton = new JButton("Quit");
+
+        // Style Buttons
+        styleButton(singlePlayerButton, 300, 200, 200, 50);
+        styleButton(multiPlayerButton, 300, 300, 200, 50);
+        styleButton(quitButton, 300, 400, 200, 50);
+
+        // Add Button Actions
+        singlePlayerButton.addActionListener(e -> {
+            frame.dispose();
+            new BlackJackGame(1);
+        });
+
+        multiPlayerButton.addActionListener(e -> {
+            frame.dispose();
+            new BlackJackGame(4); // 4 Players in Multiplayer Mode
+        });
+
+        quitButton.addActionListener(e -> System.exit(0));
+
         frame.setVisible(true);
     }
 
-    // Helper method to style buttons
-    private JButton createStyledButton(String text) {
-        JButton button = new JButton(text);
-        button.setFont(new Font("Arial", Font.BOLD, 16));
-        button.setBackground(new Color(255, 215, 0)); // Gold background
-        button.setForeground(Color.BLACK); // Black text
-        button.setFocusPainted(false); // Remove focus border
-        button.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2)); // Black border
-        return button;
+    private void styleButton(JButton button, int x, int y, int width, int height) {
+        button.setBounds(x, y, width, height);
+        button.setFocusable(false);
+        button.setBackground(Color.LIGHT_GRAY);
+        button.setForeground(Color.BLACK);
+        button.setFont(new Font("Arial", Font.BOLD, 18));
+        frame.add(button);
     }
 }

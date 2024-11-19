@@ -1,72 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="91e5c2c4-ef98-42a2-bedb-bec0d59d3a32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/BlackJack-Double-T-.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DSA Gambling/DSA Gambling.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/10-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/10-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/10-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/10-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/2-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/2-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/2-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/2-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/3-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/3-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/3-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/3-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/4-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/4-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/4-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/4-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/5-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/5-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/5-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/5-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/6-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/6-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/6-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/6-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/7-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/7-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/7-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/7-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/8-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/8-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/8-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/8-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/9-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/9-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/9-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/9-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/A-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/A-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/A-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/A-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/BACK.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-B.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-R.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/J-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/K-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/K-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/K-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/K-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/Q-C.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/Q-D.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/Q-H.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cards/Q-S.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/BlackJack-Double-T-.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/Main.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
