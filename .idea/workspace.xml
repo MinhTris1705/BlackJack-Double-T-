@@ -5,10 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e5c2c4-ef98-42a2-bedb-bec0d59d3a32" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/UI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DSA Gambling/src2/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DSA Gambling/src2/BlackJack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BlackJack-Double-T-.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BlackJack-Double-T-.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/10-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/10-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/10-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/10-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/10-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/10-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/10-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/10-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/2-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/2-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/2-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/2-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/2-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/2-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/2-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/2-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/3-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/3-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/3-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/3-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/3-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/3-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/3-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/3-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/4-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/4-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/4-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/4-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/4-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/4-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/4-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/4-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/5-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/5-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/5-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/5-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/5-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/5-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/5-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/5-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/6-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/6-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/6-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/6-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/6-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/6-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/6-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/6-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/7-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/7-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/7-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/7-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/7-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/7-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/7-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/7-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/8-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/8-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/8-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/8-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/8-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/8-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/8-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/8-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/9-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/9-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/9-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/9-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/9-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/9-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/9-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/9-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/A-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/A-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/A-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/A-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/A-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/A-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/A-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/A-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/BACK.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/BACK.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-B.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-B.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-R.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-R.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/J-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/J-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/K-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/K-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/K-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/K-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/K-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/K-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/K-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/K-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/Q-C.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/Q-C.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/Q-D.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/Q-D.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/Q-H.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/Q-H.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/cards/Q-S.png" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/cards/Q-S.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/Deck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +97,24 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mtris&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Testing&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Desktop/blackjack-java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\BlackJack-Double-T-\DSA Gambling\src2" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

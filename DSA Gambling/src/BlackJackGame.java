@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 public class BlackJackGame {
@@ -75,27 +74,32 @@ public class BlackJackGame {
     }
 
     private void drawHands(Graphics g) {
-        int y = 20;
+        int x = 20, y = 20;
 
         // Draw dealer's hand
         g.setColor(Color.WHITE);
-        g.drawString("Dealer's Hand: " + (dealerTurn ? dealer.getHandValue() : "???"), 20, y);
+        g.drawString("Dealer's Hand: " + (dealerTurn ? dealer.getHandValue() : "???"), x, y);
         y += 20;
 
         for (Card card : dealer.getHand()) {
-            g.drawString(card.toString(), 20, y);
-            y += 20;
+            g.drawImage(card.getImage(), x, y, 100, 140, null);  // Draw the card image
+            x += 110;  // Space out the cards
         }
+
+        // Reset for player's hand
+        x = 20;
+        y += 160;  // Leave some space below the dealer's hand
 
         // Draw each player's hand
         for (Player player : players) {
-            y += 20;
-            g.drawString(player.getName() + "'s Hand: " + player.getHandValue(), 20, y);
+            g.drawString(player.getName() + "'s Hand: " + player.getHandValue(), x, y);
             y += 20;
             for (Card card : player.getHand()) {
-                g.drawString(card.toString(), 20, y);
-                y += 20;
+                g.drawImage(card.getImage(), x, y, 100, 140, null);  // Draw the card image
+                x += 110;  // Space out the cards
             }
+            y += 160;  // Add space between each player's hands
+            x = 20;  // Reset x for the next player
         }
     }
 

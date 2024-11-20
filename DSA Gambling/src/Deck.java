@@ -27,7 +27,7 @@ public class Deck {
         if (cards.isEmpty()) {
             throw new IllegalStateException("The deck is empty!");
         }
-        return cards.remove(cards.size() - 1); // Draw from the top
+        return cards.remove(cards.size() - 1);  // Draw from the top
     }
 
     // Get the remaining cards in the deck
