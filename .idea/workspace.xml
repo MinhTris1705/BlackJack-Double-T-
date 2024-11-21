@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e5c2c4-ef98-42a2-bedb-bec0d59d3a32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/UI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DSA Gambling/src2/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DSA Gambling/src2/BlackJack.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJack$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJack$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJack$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJack$Card.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/UI.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/DSA Gambling/src/ResultBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

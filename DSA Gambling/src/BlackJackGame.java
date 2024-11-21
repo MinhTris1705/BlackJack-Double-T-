@@ -47,6 +47,9 @@ public class BlackJackGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
+        // Center the window on the screen
+        frame.setLocationRelativeTo(null);
+
         // Game Panel
         gamePanel = new JPanel() {
             @Override
@@ -76,30 +79,25 @@ public class BlackJackGame {
     private void drawHands(Graphics g) {
         int x = 20, y = 20;
 
-        // Draw dealer's hand
-        g.setColor(Color.WHITE);
-        g.drawString("Dealer's Hand: " + (dealerTurn ? dealer.getHandValue() : "???"), x, y);
-        y += 20;
-
-        for (Card card : dealer.getHand()) {
-            g.drawImage(card.getImage(), x, y, 100, 140, null);  // Draw the card image
-            x += 110;  // Space out the cards
-        }
-
-        // Reset for player's hand
-        x = 20;
-        y += 160;  // Leave some space below the dealer's hand
-
-        // Draw each player's hand
-        for (Player player : players) {
-            g.drawString(player.getName() + "'s Hand: " + player.getHandValue(), x, y);
+        // Draw dealer's hand (if it's dealer's turn)
+        if (dealerTurn) {
+            g.setColor(Color.WHITE);
+            g.drawString("Dealer's Hand: " + dealer.getHandValue(), x, y);
             y += 20;
-            for (Card card : player.getHand()) {
-                g.drawImage(card.getImage(), x, y, 100, 140, null);  // Draw the card image
-                x += 110;  // Space out the cards
+            for (Card card : dealer.getHand()) {
+                g.drawImage(card.getImage(), x, y, 100, 140, null);
+                x += 110;
             }
-            y += 160;  // Add space between each player's hands
-            x = 20;  // Reset x for the next player
+        } else {
+            // Draw current player's hand
+            Player currentPlayer = players.get(currentPlayerIndex);
+            g.setColor(Color.WHITE);
+            g.drawString(currentPlayer.getName() + "'s Hand: " + currentPlayer.getHandValue(), x, y);
+            y += 20;
+            for (Card card : currentPlayer.getHand()) {
+                g.drawImage(card.getImage(), x, y, 100, 140, null);
+                x += 110;
+            }
         }
     }
 
@@ -132,17 +130,32 @@ public class BlackJackGame {
     }
 
     private void determineWinner() {
+        StringBuilder result = new StringBuilder();
         for (Player player : players) {
             if (!player.isBusted() && (dealer.isBusted() || player.getHandValue() > dealer.getHandValue())) {
-                System.out.println(player.getName() + " wins!");
+                result.append(player.getName()).append(" wins!\n");
             } else {
-                System.out.println(player.getName() + " loses!");
+                result.append(player.getName()).append(" loses!\n");
             }
         }
+
+        // Show result popup
+        new ResultBoard(result.toString(), this);
+    }
+
+    public int getPlayerCount() {
+        return players.size();
+    }
+
+    public void dispose() {
+        frame.dispose();  // Safely dispose of the current frame
+        frame = null;     // Reset frame to avoid reusing an uninitialized object
     }
 
     private void updateUI() {
-        gamePanel.repaint();
+        if (gamePanel != null) {
+            gamePanel.repaint();
+        }
         if (dealerTurn || currentPlayerIndex >= players.size()) {
             hitButton.setEnabled(false);
             stayButton.setEnabled(false);
