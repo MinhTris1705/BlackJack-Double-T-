@@ -3,6 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class BlackJackGame {
+    private static BlackJackGame currentGame;
     private JFrame frame;
     private JPanel gamePanel, buttonPanel;
     private JButton hitButton, stayButton;
@@ -13,6 +14,10 @@ public class BlackJackGame {
     private boolean dealerTurn;
 
     public BlackJackGame(int playerCount) {
+        if (currentGame != null){
+            currentGame.dispose();
+        }
+        currentGame= this; //Set the current game instance
         initializeGame(playerCount);
         setupUI();
         updateUI();
