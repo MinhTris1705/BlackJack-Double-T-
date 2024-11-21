@@ -169,4 +169,8 @@ public class BlackJackGame {
             stayButton.setEnabled(true);
         }
     }
+    public JFrame getFrame() {
+        return frame;
+    }
+
 }

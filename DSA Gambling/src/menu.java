@@ -15,10 +15,10 @@ public class menu {
         frame.getContentPane().setBackground(new Color(53, 101, 77));
 
         // Title
-        JLabel title = new JLabel("Blackjack Game", JLabel.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 36));
-        title.setForeground(Color.WHITE);
-        title.setBounds(200, 50, 400, 50);
+        JLabel title = new JLabel("Blackjack Double 2T", JLabel.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 40));
+        title.setForeground(Color.LIGHT_GRAY);
+        title.setBounds(200, 80, 400, 50);
         frame.add(title);
 
         // Buttons
