@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ResultBoard {
     public ResultBoard(String message, BlackJackGame parentGame) {
@@ -46,7 +47,52 @@ public class ResultBoard {
         buttonPanel.add(playAgainButton);
         buttonPanel.add(exitToMenuButton);
 
+        // If multiple players, rank them
+        ArrayList<Player> players = parentGame.getPlayers();
+        if (players.size() > 1) {
+            rankPlayers(players);
+            StringBuilder ranking = new StringBuilder("\nPlayer Rankings:\n");
+            for (int i = 0; i < players.size(); i++) {
+                ranking.append(i + 1).append(". ").append(players.get(i).getName())
+                        .append(" - Hand Value: ").append(players.get(i).getHandValue());
+
+                if (players.get(i).isBusted()) {
+                    ranking.append(" (Busted)");
+                }
+                ranking.append("\n");
+            }
+            resultArea.append(ranking.toString());
+        }
+
         frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
+    }
+
+    // Sort and rank players by hand value
+    private void rankPlayers(ArrayList<Player> players) {
+        int n = players.size();
+        for (int i = 0; i < n - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                int handValueI = players.get(maxIndex).getHandValue();
+                int handValueJ = players.get(j).getHandValue();
+
+                // If player is busted, treat their value as lowest priority
+                if (players.get(maxIndex).isBusted()) {
+                    handValueI = -1;
+                }
+                if (players.get(j).isBusted()) {
+                    handValueJ = -1;
+                }
+
+                if (handValueJ > handValueI) {
+                    maxIndex = j;
+                }
+            }
+            // Swap the players
+            Player temp = players.get(maxIndex);
+            players.set(maxIndex, players.get(i));
+            players.set(i, temp);
+        }
     }
 }

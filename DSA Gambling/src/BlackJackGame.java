@@ -136,20 +136,44 @@ public class BlackJackGame {
 
     private void determineWinner() {
         StringBuilder result = new StringBuilder();
+
+        // Check if dealer is busted
+        boolean dealerBusted = dealer.isBusted();
+        int dealerHandValue = dealer.getHandValue();
+
         for (Player player : players) {
-            if (!player.isBusted() && (dealer.isBusted() || player.getHandValue() > dealer.getHandValue())) {
+            boolean playerBusted = player.isBusted();
+            int playerHandValue = player.getHandValue();
+
+            // Case when both player and dealer are busted (draw)
+            if (playerBusted && dealerBusted) {
+                result.append(player.getName()).append(" and Dealer draw!\n");
+            }
+            // Player wins if dealer is busted or player has a higher hand value
+            else if (!playerBusted && (dealerBusted || playerHandValue > dealerHandValue)) {
                 result.append(player.getName()).append(" wins!\n");
-            } else {
+            }
+            // Player loses if dealer wins or player is busted
+            else if (playerBusted || playerHandValue < dealerHandValue) {
                 result.append(player.getName()).append(" loses!\n");
+            }
+            // If it's a tie (player and dealer have equal hand value and neither is busted)
+            else if (playerHandValue == dealerHandValue) {
+                result.append(player.getName()).append(" and Dealer tie!\n");
             }
         }
 
-        // Show result popup
+        // Update the result message
         new ResultBoard(result.toString(), this);
     }
 
+
     public int getPlayerCount() {
         return players.size();
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     public void dispose() {
@@ -159,7 +183,6 @@ public class BlackJackGame {
         }
         currentGame = null;   // Reset the static reference
     }
-
 
     private void updateUI() {
         if (gamePanel != null) {
