@@ -153,9 +153,13 @@ public class BlackJackGame {
     }
 
     public void dispose() {
-        frame.dispose();  // Safely dispose of the current frame
-        frame = null;     // Reset frame to avoid reusing an uninitialized object
+        if (frame != null) {
+            frame.dispose();  // Safely dispose of the current frame
+            frame = null;     // Reset frame to avoid reusing an uninitialized object
+        }
+        currentGame = null;   // Reset the static reference
     }
+
 
     private void updateUI() {
         if (gamePanel != null) {

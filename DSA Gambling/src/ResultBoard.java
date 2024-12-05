@@ -36,9 +36,11 @@ public class ResultBoard {
         });
 
         exitToMenuButton.addActionListener(e -> {
-            frame.dispose(); // Close result board
-            parentGame.dispose(); // Close the current game
-            new menu(); // Open the menu
+            frame.dispose();      // Close result board
+            if (parentGame != null) {
+                parentGame.dispose(); // Dispose of the current game safely
+            }
+            new menu();           // Open the menu
         });
 
         buttonPanel.add(playAgainButton);
