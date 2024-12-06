@@ -47,6 +47,16 @@ public class ResultBoard {
         buttonPanel.add(playAgainButton);
         buttonPanel.add(exitToMenuButton);
 
+        // Append hand value for single-player mode
+        if (parentGame.getPlayerCount() == 1) {
+            Player singlePlayer = parentGame.getPlayers().get(0); // Get the single player
+            String handValueMessage = "\nHand Value: " + singlePlayer.getHandValue();
+            if (singlePlayer.isBusted()) {
+                handValueMessage += " (Busted)";
+            }
+            resultArea.append(handValueMessage); // Append directly to the JTextArea
+        }
+
         // If multiple players, rank them
         ArrayList<Player> players = parentGame.getPlayers();
         if (players.size() > 1) {

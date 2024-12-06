@@ -147,7 +147,7 @@ public class BlackJackGame {
 
             // Case when both player and dealer are busted (draw)
             if (playerBusted && dealerBusted) {
-                result.append(player.getName()).append(" and Dealer draw!\n");
+                result.append(player.getName()).append(" and Dealer tie!\n");
             }
             // Player wins if dealer is busted or player has a higher hand value
             else if (!playerBusted && (dealerBusted || playerHandValue > dealerHandValue)) {
