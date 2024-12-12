@@ -7,6 +7,8 @@ public class BlackJackGame {
     private JPanel gamePanel, buttonPanel;
     private JButton hitButton, stayButton;
     private Deck deck;
+    private ArrayList<Player> players;
+
 
     public BlackJackGame(int playerCount) {
         if (currentGame != null){
