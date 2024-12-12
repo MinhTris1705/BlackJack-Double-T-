@@ -8,6 +8,8 @@ public class BlackJackGame {
     private JButton hitButton, stayButton;
     private Deck deck;
     private ArrayList<Player> players;
+    private Player dealer;
+
 
 
     public BlackJackGame(int playerCount) {
@@ -15,8 +17,14 @@ public class BlackJackGame {
             currentGame.dispose();
         }
         currentGame= this; //Set the current game instance
+        initializeGame(playerCount);
         setupUI();
         updateUI();
+    }
+
+    private void initializeGame(int playerCount) {
+        deck = new Deck();
+        deck.shuffle();
     }
 
     private void setupUI() {
