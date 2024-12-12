@@ -42,6 +42,20 @@ public class BlackJackGame {
         dealer.addCard(deck.draw());
         dealer.addCard(deck.draw());
 
+        // Check for blackjack after dealing initial cards
+        for (Player player : players) {
+            if (player.hasBlackjack()) {
+                String message = player.getName() + " has a Blackjack and wins!";
+                new ResultBoard(message, this);
+                return; // End the game immediately if there's a blackjack
+            }
+        }
+        if (dealer.hasBlackjack()) {
+            String message = "Dealer has a Blackjack and wins!";
+            new ResultBoard(message, this);
+            return; // End the game immediately if the dealer has a blackjack
+        }
+
         currentPlayerIndex = 0;
         dealerTurn = false;
     }
@@ -112,6 +126,7 @@ public class BlackJackGame {
 
         if (currentPlayer.getHandValue() >= 21) {
             onStay();
+
         }
         updateUI();
     }
@@ -139,14 +154,33 @@ public class BlackJackGame {
 
         // Check if dealer is busted
         boolean dealerBusted = dealer.isBusted();
+        boolean dealerBlackjack = dealer.hasBlackjack();
         int dealerHandValue = dealer.getHandValue();
+
 
         for (Player player : players) {
             boolean playerBusted = player.isBusted();
+            boolean playerBlackjack = player.hasBlackjack();
             int playerHandValue = player.getHandValue();
+            boolean playerHasFiveCards = player.getHand().size() == 5;
 
             // Case when both player and dealer are busted (draw)
-            if (playerBusted && dealerBusted) {
+            // 5-Card rule: Player wins automatically
+            if (playerHasFiveCards && playerHandValue <= 21) {
+                result.append(player.getName()).append(" wins with 5 cards!\n");
+            }
+            else if (playerBlackjack && !dealerBlackjack) {
+                result.append(player.getName()).append(" wins with a Blackjack!\n");
+            }
+            // Dealer wins with blackjack
+            else if (dealerBlackjack && (!playerBlackjack && !playerHasFiveCards)) {
+                result.append(player.getName()).append(" loses! Dealer has a Blackjack.\n");
+            }
+            // Tie if both have blackjack
+            else if (playerBlackjack && dealerBlackjack) {
+                result.append(player.getName()).append(" ties with the Dealer (Both have Blackjack).\n");
+            }
+            else if (playerBusted && dealerBusted) {
                 result.append(player.getName()).append(" and Dealer tie!\n");
             }
             // Player wins if dealer is busted or player has a higher hand value

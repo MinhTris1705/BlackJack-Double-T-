@@ -62,11 +62,11 @@ public class ResultBoard {
         if (players.size() > 1) {
             rankPlayers(players);
             StringBuilder ranking = new StringBuilder("\nPlayer Rankings:\n");
-            for (int i = 0; i < players.size(); i++) {
-                ranking.append(i + 1).append(". ").append(players.get(i).getName())
-                        .append(" - Hand Value: ").append(players.get(i).getHandValue());
+            for (Player player : players) {
+                ranking.append(player.getRank()).append(". ").append(player.getName())
+                        .append(" - Hand Value: ").append(player.getHandValue());
 
-                if (players.get(i).isBusted()) {
+                if (player.isBusted()) {
                     ranking.append(" (Busted)");
                 }
                 ranking.append("\n");
@@ -80,29 +80,29 @@ public class ResultBoard {
 
     // Sort and rank players by hand value
     private void rankPlayers(ArrayList<Player> players) {
-        int n = players.size();
-        for (int i = 0; i < n - 1; i++) {
-            int maxIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                int handValueI = players.get(maxIndex).getHandValue();
-                int handValueJ = players.get(j).getHandValue();
+        // Sort players by hand value (descending). Busted players are treated as lowest priority.
+        players.sort((p1, p2) -> {
+            int handValue1 = p1.isBusted() ? -1 : p1.getHandValue();
+            int handValue2 = p2.isBusted() ? -1 : p2.getHandValue();
+            return Integer.compare(handValue2, handValue1); // Descending order
+        });
 
-                // If player is busted, treat their value as lowest priority
-                if (players.get(maxIndex).isBusted()) {
-                    handValueI = -1;
-                }
-                if (players.get(j).isBusted()) {
-                    handValueJ = -1;
-                }
+        // Assign ranks, ensuring ties get the same rank
+        int rank = 1;
+        for (int i = 0; i < players.size(); i++) {
+            if (i > 0) {
+                Player previousPlayer = players.get(i - 1);
+                Player currentPlayer = players.get(i);
 
-                if (handValueJ > handValueI) {
-                    maxIndex = j;
+                int previousValue = previousPlayer.isBusted() ? -1 : previousPlayer.getHandValue();
+                int currentValue = currentPlayer.isBusted() ? -1 : currentPlayer.getHandValue();
+
+                // If the current player has a different score, increase the rank
+                if (currentValue != previousValue) {
+                    rank = i + 1;
                 }
             }
-            // Swap the players
-            Player temp = players.get(maxIndex);
-            players.set(maxIndex, players.get(i));
-            players.set(i, temp);
+            players.get(i).setRank(rank); // Set the rank for the player
         }
     }
 }

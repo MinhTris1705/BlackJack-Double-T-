@@ -7,7 +7,16 @@
     <list default="true" id="91e5c2c4-ef98-42a2-bedb-bec0d59d3a32" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DSA Gambling/src/ResultBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/ResultBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/ResultBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/ResultBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/menu.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,5 +82,16 @@
       <updated>1732005300879</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
