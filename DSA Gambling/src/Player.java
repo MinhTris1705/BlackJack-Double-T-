@@ -4,6 +4,7 @@ public class Player {
     private ArrayList<Card> hand;
     private int handValue;
     private int aceCount;
+    private int rank;
 
     public Player(String name){
         this.name=name;
@@ -12,8 +13,11 @@ public class Player {
         this.aceCount=0;
     }
 
-    public void addCard(Card card){
+    public void addCard(Card card) throws IllegalStateException{
         hand.add(card);
+        if(hand.size() > 5){
+            throw new IllegalStateException();
+        }
         handValue += card.getNumericValue();
         if (card.isAce()){
             aceCount++;
@@ -26,6 +30,24 @@ public class Player {
             handValue -= 10;
             aceCount--;
         }
+    }
+
+    public boolean hasBlackjack() {
+        if (hand.size() == 2) {
+            boolean hasAce = false;
+            boolean hasTenValueCard = false;
+            for (Card card : hand) {
+                if (card.isAce()) {
+                    hasAce = true;
+                } else if (card.getNumericValue() == 10) {
+                    hasTenValueCard = true;
+                }
+                if (hasAce && hasTenValueCard) {
+                    return true;
+                }
+            }
+        }
+        return false; // Not a blackjack
     }
 
     public int getHandValue(){
@@ -47,5 +69,13 @@ public class Player {
     public void printHand(){
         System.out.println(name+ "s Hand: " + hand);
         System.out.println("Hand Value: " + handValue);
+    }
+
+    public int getRank(){
+        return rank;
+    }
+
+    public void setRank(int rank){
+        this.rank = rank;
     }
 }
