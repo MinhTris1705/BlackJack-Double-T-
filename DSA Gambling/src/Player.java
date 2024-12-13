@@ -15,17 +15,22 @@ public class Player {
     }
 
     // Add a card to the player's hand
-    public void addCard(Card card) throws IllegalStateException {
-        hand.add(card);
-        if (hand.size() > 5) {
-            throw new IllegalStateException();
+    public void addCard(Card card) {
+        if (hand.size() >= 5) {
+            // Optionally notify the player they cannot have more than 5 cards
+            return; // Don't add the card if the hand already has 5 cards
         }
+
+        hand.add(card);
         handValue += card.getNumericValue();  // Add the numeric value of the card
+
         if (card.isAce()) {
             aceCount++;
         }
+
         reduceAceValue();  // Adjust for Ace value if over 21
     }
+
 
     // Adjust the Ace value if the hand value exceeds 21
     private void reduceAceValue() {
