@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="91e5c2c4-ef98-42a2-bedb-bec0d59d3a32" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/ResultBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/ResultBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/BlackJackGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DSA Gambling/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/DSA Gambling/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/BlackJackGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BlackJack-Double-T-/Card.class" afterDir="false" />
