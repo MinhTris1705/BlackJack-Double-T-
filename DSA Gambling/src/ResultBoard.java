@@ -82,8 +82,21 @@ public class ResultBoard {
     private void rankPlayers(ArrayList<Player> players) {
         // Sort players by hand value (descending). Busted players are treated as lowest priority.
         players.sort((p1, p2) -> {
-            int handValue1 = p1.isBusted() ? -1 : p1.getHandValue();
-            int handValue2 = p2.isBusted() ? -1 : p2.getHandValue();
+            int handValue1;
+            int handValue2;
+
+            if (p1.isBusted()) {
+                handValue1 = -1;
+            } else {
+                handValue1 = p1.getHandValue();
+            }
+
+            if (p2.isBusted()) {
+                handValue2 = -1;
+            } else {
+                handValue2 = p2.getHandValue();
+            }
+
             return Integer.compare(handValue2, handValue1); // Descending order
         });
 
@@ -94,8 +107,20 @@ public class ResultBoard {
                 Player previousPlayer = players.get(i - 1);
                 Player currentPlayer = players.get(i);
 
-                int previousValue = previousPlayer.isBusted() ? -1 : previousPlayer.getHandValue();
-                int currentValue = currentPlayer.isBusted() ? -1 : currentPlayer.getHandValue();
+                int previousValue;
+                int currentValue;
+
+                if (previousPlayer.isBusted()) {
+                    previousValue = -1;
+                } else {
+                    previousValue = previousPlayer.getHandValue();
+                }
+
+                if (currentPlayer.isBusted()) {
+                    currentValue = -1;
+                } else {
+                    currentValue = currentPlayer.getHandValue();
+                }
 
                 // If the current player has a different score, increase the rank
                 if (currentValue != previousValue) {
