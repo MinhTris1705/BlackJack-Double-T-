@@ -30,22 +30,24 @@ public class ResultBoard {
         JButton playAgainButton = new JButton("Play Again");
         JButton exitToMenuButton = new JButton("Exit to Menu");
 
+        // Play Again Button Action
         playAgainButton.addActionListener(e -> {
-            frame.dispose(); // Close result board
-            parentGame.getFrame().dispose(); // Dispose of the BlackJackGame frame
+            frame.dispose(); // Close the result board
+            parentGame.dispose(); // Dispose of the current game completely
             new BlackJackGame(parentGame.getPlayerCount()); // Start a new game
         });
 
+        // Exit to Menu Button Action
         exitToMenuButton.addActionListener(e -> {
-            frame.dispose();      // Close result board
-            if (parentGame != null) {
-                parentGame.dispose(); // Dispose of the current game safely
-            }
-            new menu();           // Open the menu
+            frame.dispose(); // Close the result board
+            parentGame.dispose(); // Dispose of the current game completely
+            new menu(); // Open the menu
         });
 
         buttonPanel.add(playAgainButton);
         buttonPanel.add(exitToMenuButton);
+
+        frame.add(buttonPanel, BorderLayout.SOUTH);
 
         // Append hand value for single-player mode
         if (parentGame.getPlayerCount() == 1) {
@@ -74,7 +76,6 @@ public class ResultBoard {
             resultArea.append(ranking.toString());
         }
 
-        frame.add(buttonPanel, BorderLayout.SOUTH);
         frame.setVisible(true);
     }
 
