@@ -38,24 +38,12 @@ public class BlackJackGame {
         for (Player player : players) {
             player.addCard(deck.draw());
             player.addCard(deck.draw());
-
-            // Check for Double Aces at the start
-            if (player.hasDoubleAces()) {
-                String message = player.getName() + " has Double Aces and wins!";
-                new ResultBoard(message, this);
-                continue; // Skip to the next player
-            }
         }
 
         dealer.addCard(deck.draw());
         dealer.addCard(deck.draw());
 
-        // Check for dealer Double Aces or Blackjack
-        if (dealer.hasDoubleAces()) {
-            String message = "Dealer has Double Aces and wins!";
-            new ResultBoard(message, this);
-            return; // End game if the dealer has Double Aces
-        }
+        // Check for dealer Blackjack
         if (dealer.hasBlackjack()) {
             String message = "Dealer has a Blackjack and wins!";
             new ResultBoard(message, this);
@@ -130,10 +118,6 @@ public class BlackJackGame {
         Player currentPlayer = players.get(currentPlayerIndex);
 
         // Prevent hitting if Double Aces were at the start
-        if (currentPlayer.hasDoubleAces()) {
-            return;
-        }
-
         currentPlayer.addCard(deck.draw());
         if (currentPlayer.getHandValue() >= 21) {
             onStay();
@@ -162,70 +146,56 @@ public class BlackJackGame {
     private void determineWinner() {
         StringBuilder result = new StringBuilder();
 
-        // First, rank Double Aces above all else
-        boolean dealerHasDoubleAces = dealer.hasDoubleAces();
-        for (Player player : players) {
-            boolean playerHasDoubleAces = player.hasDoubleAces() && player.getHand().size() == 2;
-
-            if (playerHasDoubleAces && dealerHasDoubleAces) {
-                result.append(player.getName()).append(" ties with Dealer (Both have Double Aces)!\n");
-                continue;
-            } else if (playerHasDoubleAces) {
-                result.append(player.getName()).append(" wins with Double Aces!\n");
-                continue;
-            } else if (dealerHasDoubleAces) {
-                result.append(player.getName()).append(" loses! Dealer wins with Double Aces.\n");
-                continue;
-            }
-        }
-
-        // Next, check for Blackjack
+        // Check for dealer's Blackjack first
         boolean dealerBlackjack = dealer.hasBlackjack();
+
         for (Player player : players) {
             boolean playerBlackjack = player.hasBlackjack();
 
             if (playerBlackjack && dealerBlackjack) {
+                // Both have Blackjack: Tie
                 result.append(player.getName()).append(" ties with Dealer (Both have Blackjack).\n");
-                continue;
             } else if (playerBlackjack) {
+                // Player has Blackjack and wins automatically
                 result.append(player.getName()).append(" wins with a Blackjack!\n");
-                continue;
             } else if (dealerBlackjack) {
+                // Dealer has Blackjack and player doesn't
                 result.append(player.getName()).append(" loses! Dealer has a Blackjack.\n");
-                continue;
             }
         }
 
-        // Finally, compare scores
-        boolean dealerBusted = dealer.isBusted();
-        int dealerHandValue = dealer.getHandValue();
+        // If the dealer does NOT have Blackjack, compare hand values and check for busts
+        if (!dealerBlackjack) {
+            boolean dealerBusted = dealer.isBusted();
+            int dealerHandValue = dealer.getHandValue();
 
-        for (Player player : players) {
-            if (player.hasDoubleAces() || player.hasBlackjack()) {
-                continue; // Skip further evaluation if the player already won by Double Aces or Blackjack
-            }
+            for (Player player : players) {
+                if (player.hasBlackjack()) {
+                    // Skip players who already won with Blackjack
+                    continue;
+                }
 
-            boolean playerBusted = player.isBusted();
-            int playerHandValue = player.getHandValue();
+                boolean playerBusted = player.isBusted();
+                int playerHandValue = player.getHandValue();
 
-            if (playerBusted && dealerBusted) {
-                result.append(player.getName()).append(" and Dealer tie (Both busted)!\n");
-            } else if (playerBusted) {
-                result.append(player.getName()).append(" loses! (Busted)\n");
-            } else if (dealerBusted) {
-                result.append(player.getName()).append(" wins! Dealer is busted.\n");
-            } else if (playerHandValue > dealerHandValue) {
-                result.append(player.getName()).append(" wins with a higher score!\n");
-            } else if (playerHandValue < dealerHandValue) {
-                result.append(player.getName()).append(" loses! Dealer has a higher score.\n");
-            } else {
-                result.append(player.getName()).append(" ties with Dealer (Equal scores).\n");
+                if (playerBusted) {
+                    result.append(player.getName()).append(" loses! (Busted)\n");
+                } else if (dealerBusted) {
+                    result.append(player.getName()).append(" wins! Dealer is busted.\n");
+                } else if (playerHandValue > dealerHandValue) {
+                    result.append(player.getName()).append(" wins with a higher score!\n");
+                } else if (playerHandValue < dealerHandValue) {
+                    result.append(player.getName()).append(" loses! Dealer has a higher score.\n");
+                } else {
+                    result.append(player.getName()).append(" ties with Dealer (Equal scores).\n");
+                }
             }
         }
 
         // Display the result message
         new ResultBoard(result.toString(), this);
     }
+
 
     public int getPlayerCount() {
         return players.size();

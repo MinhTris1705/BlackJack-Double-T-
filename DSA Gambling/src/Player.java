@@ -61,16 +61,6 @@ public class Player {
         }
         return false; // Not a blackjack
     }
-    public boolean hasDoubleAces() {
-        int aceCount = 0;
-        for (Card card : hand) {
-            if (card.isAce()) { // Assuming isAce() checks if the card is an Ace
-                aceCount++;
-            }
-        }
-        return aceCount == 2; // Return true if there are exactly 2 Aces
-    }
-
 
 
     public int getHandValue() {
