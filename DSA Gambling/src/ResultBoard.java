@@ -8,7 +8,9 @@ public class ResultBoard {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
+    }
 
+    public ResultBoard(String message, BlackJackGame blackJackGame) {
     }
 
     private void rankPlayers(ArrayList<Player> players){
