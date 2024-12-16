@@ -13,11 +13,11 @@ public class Player {
         this.aceCount=0;
     }
 
-    public void addCard(Card card) throws IllegalStateException{
-        hand.add(card);
+    public void addCard(Card card) {
         if(hand.size() > 5){
-            throw new IllegalStateException();
+            return;
         }
+        hand.add(card);
         handValue += card.getNumericValue();
         if (card.isAce()){
             aceCount++;
