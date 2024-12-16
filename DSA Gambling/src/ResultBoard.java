@@ -71,29 +71,53 @@ public class ResultBoard {
 
     }
 
-    private void rankPlayers(ArrayList<Player> players){
-        int n = players.size();
-        for(int i = 0; i < n - 1; i++){
-            int maxIndex = i;
-            for (int j= i + 1; j < n ; j++){
-                int handValueI = players.get(maxIndex).getHandValue();
-                int handValueJ = players.get(j).getHandValue();
+    private void rankPlayers(ArrayList<Player> players) {
+        // Sort players by hand value (descending). Busted players are treated as lowest priority.
+        players.sort((p1, p2) -> {
+            int handValue1;
+            int handValue2;
 
-                if(players.get(maxIndex).isBusted()){
-                    handValueI = -1;
-                }
-                if(players.get(j).isBusted()){
-                    handValueJ =-1;
-                }
-
-                if (handValueJ> handValueI){
-                    maxIndex =j;
-                }
+            if (p1.isBusted()) {
+                handValue1 = -1;
+            } else {
+                handValue1 = p1.getHandValue();
             }
 
-            Player temp= players.get(maxIndex);
-            players.set(maxIndex, players.get(i));
-            players.set(i,temp);
+            if (p2.isBusted()) {
+                handValue2 = -1;
+            } else {
+                handValue2 = p2.getHandValue();
+            }
+
+            return Integer.compare(handValue2, handValue1);
+        });
+        int rank = 1;
+        for (int i = 0; i < players.size(); i++) {
+            if (i > 0) {
+                Player previousPlayer = players.get(i - 1);
+                Player currentPlayer = players.get(i);
+
+                int previousValue;
+                int currentValue;
+
+                if (previousPlayer.isBusted()) {
+                    previousValue = -1;
+                } else {
+                    previousValue = previousPlayer.getHandValue();
+                }
+
+                if (currentPlayer.isBusted()) {
+                    currentValue = -1;
+                } else {
+                    currentValue = currentPlayer.getHandValue();
+                }
+
+                // If the current player has a different score, increase the rank
+                if (currentValue != previousValue) {
+                    rank = i + 1;
+                }
+            }
+            players.get(i).setRank(rank); // Set the rank for the player
         }
     }
 }
