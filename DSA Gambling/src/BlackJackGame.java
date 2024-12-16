@@ -12,8 +12,6 @@ public class BlackJackGame {
     public int currentPlayerIndex;
     public boolean dealerTurn;
 
-
-
     public BlackJackGame(int playerCount) {
         if (currentGame != null){
             currentGame.dispose();
@@ -28,16 +26,18 @@ public class BlackJackGame {
         deck = new Deck();
         deck.shuffle();
         players= new ArrayList<>();
+
         for (int i=1;i< playerCount; i++){
             players.add(new Player("Player "+ i));
         }
+
         dealer= new Player("Dealer");
 
         for (Player player : players){
             player.addCard(deck.draw());
             player.addCard(deck.draw());
         }
-        dealer.addCard(deck.draw());
+        dealer.addCard(deck.draw()); //begin with 2 cards
         dealer.addCard(deck.draw());
 
         if(dealer.hasBlackjack()){
@@ -85,7 +85,7 @@ public class BlackJackGame {
         frame.setVisible(true);
     }
     private void updateUI() {
-    /*    if (gamePanel != null) {
+        if (gamePanel != null) {
             gamePanel.repaint();
         }
         if (dealerTurn || currentPlayerIndex >= players.size()) {
@@ -94,21 +94,52 @@ public class BlackJackGame {
         } else {
             hitButton.setEnabled(true);
             stayButton.setEnabled(true);
-        } */
-    }
-    public JFrame getFrame() {
-        return frame;
+        }
     }
 
     private void drawHands(Graphics g) {
+        int x = 20, y = 20;
+
+        // Draw dealer's hand (if it's dealer's turn)
+        if (dealerTurn) {
+            g.setColor(Color.WHITE);
+            g.drawString("Dealer's Hand: " + dealer.getHandValue(), x, y);
+            y += 20;
+            for (Card card : dealer.getHand()) {
+                g.drawImage(card.getImage(), x, y, 100, 140, null);
+                x += 110;
+            }
+        } else {
+            // Draw current player's hand
+            Player currentPlayer = players.get(currentPlayerIndex);
+            g.setColor(Color.WHITE);
+            g.drawString(currentPlayer.getName() + "'s Hand: " + currentPlayer.getHandValue(), x, y);
+            y += 20;
+            for (Card card : currentPlayer.getHand()) {
+                g.drawImage(card.getImage(), x, y, 100, 140, null);
+                x += 110;
+            }
+        }
     }
 
     private void onHit() {
+        Player currentPlayer = players.get(currentPlayerIndex);
+
+        // Prevent hitting if Double Aces were at the start
+        currentPlayer.addCard(deck.draw());
+        if (currentPlayer.getHandValue() >= 21) {
+            onStay();
+        }
         updateUI();
     }
 
     private void onStay() {
-        updateUI();
+        currentPlayerIndex++;
+        if (currentPlayerIndex >= players.size()) {
+            startDealerTurn();
+        } else {
+            updateUI();
+        }
     }
 
     private void startDealerTurn() {
@@ -116,6 +147,8 @@ public class BlackJackGame {
         while (dealer.getHandValue() <= 15) {
             dealer.addCard(deck.draw());
         }
+        determineWinner();
+        updateUI();
     }
 
     private void determineWinner() {
@@ -172,12 +205,11 @@ public class BlackJackGame {
 
     public void dispose() {
         if (frame != null) {
-            frame.dispose();  // Safely dispose of the current frame
-            frame = null;     // Reset frame to avoid reusing an uninitialized object
+            frame.dispose();
+            frame = null;
         }
-        currentGame = null;   // Reset the static reference
+        currentGame = null;
     }
-
 }
 
 
