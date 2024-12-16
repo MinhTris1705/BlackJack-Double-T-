@@ -20,7 +20,6 @@ public class Card {
         return suit;
     }
 
-    // Get the numeric value of the card
     public int getNumericValue() {
         if ("JQK".contains(value)) {
             return 10;  // Jack, Queen, King = 10
@@ -31,17 +30,15 @@ public class Card {
         }
     }
 
-    // Checks if the card is an Ace
     public boolean isAce() {
         return value.equals("A");
     }
 
-    // Load the image for the card based on value and suit
     private Image loadImage(String value, String suit) {
         String suitAbbreviation = getSuitAbbreviation(suit);  // Get the suit (C, D, H, S)
         String imageName = value + "-" + suitAbbreviation + ".png";  // Create the image name
         // Use getClass().getResource() to load the image
-        ImageIcon icon = new ImageIcon(getClass().getResource("cards/" + imageName));  // Load image
+        ImageIcon icon = new ImageIcon(getClass().getResource("cards/" + imageName));
         if (icon.getImageLoadStatus() != MediaTracker.COMPLETE) {
             System.out.println("Error loading image: " + imageName);
         }

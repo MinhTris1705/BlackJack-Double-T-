@@ -6,7 +6,7 @@ public class menu {
     JFrame frame;
 
     public menu() {
-        frame = new JFrame("Blackjack Menu");
+        frame = new JFrame("BLACKJACK");
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
@@ -14,23 +14,20 @@ public class menu {
         frame.getContentPane().setBackground(new Color(53, 101, 77));
 
         // Title
-        JLabel title = new JLabel("Blackjack Double 2T", JLabel.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 40));
-        title.setForeground(Color.LIGHT_GRAY);
+        JLabel title = new JLabel("BLACKJACK 2T", JLabel.CENTER);
+        title.setFont(new Font("Times New Roman\n", Font.BOLD, 50));
+        title.setForeground(Color.WHITE);
         title.setBounds(200, 80, 400, 50);
         frame.add(title);
 
-        // Buttons
         JButton singlePlayerButton = new JButton("Single Player");
         JButton multiPlayerButton = new JButton("Multiple Players");
         JButton quitButton = new JButton("Quit");
 
-        // Style Buttons
         styleButton(singlePlayerButton, 300, 200, 200, 50);
         styleButton(multiPlayerButton, 300, 300, 200, 50);
         styleButton(quitButton, 300, 400, 200, 50);
 
-        // Add Button Actions
         singlePlayerButton.addActionListener(e -> {
             frame.dispose();
             new BlackJackGame(1);
@@ -38,7 +35,7 @@ public class menu {
 
         multiPlayerButton.addActionListener(e -> {
             frame.dispose();
-            new BlackJackGame(4); // 4 Players in Multiplayer Mode
+            new BlackJackGame(4);
         });
 
         quitButton.addActionListener(e -> System.exit(0));
@@ -49,7 +46,7 @@ public class menu {
     private void styleButton(JButton button, int x, int y, int width, int height) {
         button.setBounds(x, y, width, height);
         button.setFocusable(false);
-        button.setBackground(Color.LIGHT_GRAY);
+        button.setBackground(Color.YELLOW);
         button.setForeground(Color.BLACK);
         button.setFont(new Font("Arial", Font.BOLD, 18));
         frame.add(button);

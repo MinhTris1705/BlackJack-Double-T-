@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+
 public class BlackJackGame {
     private static BlackJackGame currentGame;
     private JFrame frame;
@@ -9,14 +10,14 @@ public class BlackJackGame {
     private Deck deck;
     private ArrayList<Player> players;
     private Player dealer;
-    public int currentPlayerIndex;
-    public boolean dealerTurn;
+    private int currentPlayerIndex;
+    private boolean dealerTurn;
 
     public BlackJackGame(int playerCount) {
-        if (currentGame != null){
+        if (currentGame != null) {
             currentGame.dispose();
         }
-        currentGame= this; //Set the current game instance
+        currentGame = this;
         initializeGame(playerCount);
         setupUI();
         updateUI();
@@ -25,29 +26,30 @@ public class BlackJackGame {
     private void initializeGame(int playerCount) {
         deck = new Deck();
         deck.shuffle();
-        players= new ArrayList<>();
 
-        for (int i=1;i< playerCount; i++){
-            players.add(new Player("Player "+ i));
+        players = new ArrayList<>();
+        for (int i = 1; i <= playerCount; i++) {
+            players.add(new Player("Player " + i));
         }
 
-        dealer= new Player("Dealer");
+        dealer = new Player("Dealer");
 
-        for (Player player : players){
+        for (Player player : players) {
             player.addCard(deck.draw());
             player.addCard(deck.draw());
         }
-        dealer.addCard(deck.draw()); //begin with 2 cards
+
+        dealer.addCard(deck.draw());
         dealer.addCard(deck.draw());
 
-        if(dealer.hasBlackjack()){
-            String message="Dealer has a Blackjack and wins!";
+        if (dealer.hasBlackjack()) {
+            String message = "Dealer has a Blackjack and wins!";
             new ResultBoard(message, this);
-            return;
+            return; // End game if the dealer has Blackjack
         }
 
         currentPlayerIndex = 0;
-        dealerTurn=false;
+        dealerTurn = false;
     }
 
     private void setupUI() {
@@ -84,6 +86,7 @@ public class BlackJackGame {
 
         frame.setVisible(true);
     }
+
     private void updateUI() {
         if (gamePanel != null) {
             gamePanel.repaint();
@@ -143,7 +146,7 @@ public class BlackJackGame {
     }
 
     private void startDealerTurn() {
-        dealerTurn=true;
+        dealerTurn = true;
         while (dealer.getHandValue() <= 15) {
             dealer.addCard(deck.draw());
         }
@@ -153,6 +156,8 @@ public class BlackJackGame {
 
     private void determineWinner() {
         StringBuilder result = new StringBuilder();
+
+        // Check for dealer's Blackjack first
         boolean dealerBlackjack = dealer.hasBlackjack();
 
         for (Player player : players) {
@@ -192,10 +197,12 @@ public class BlackJackGame {
                 }
             }
         }
+
+        // Display the result message
         new ResultBoard(result.toString(), this);
     }
 
-    public int getPlayerCount(){
+    public int getPlayerCount() {
         return players.size();
     }
 
@@ -205,11 +212,10 @@ public class BlackJackGame {
 
     public void dispose() {
         if (frame != null) {
-            frame.dispose();
-            frame = null;
+            frame.dispose(); // Safely dispose of the current frame
+            frame = null; // Reset frame to avoid reusing an uninitialized object
         }
-        currentGame = null;
+        currentGame = null; // Reset the static reference
     }
+
 }
-
-
