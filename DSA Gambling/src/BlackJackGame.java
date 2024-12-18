@@ -105,7 +105,6 @@ public class BlackJackGame {
                 x += 110;
             }
         } else {
-            // Draw current player's hand
             Player currentPlayer = players.get(currentPlayerIndex);
             g.setColor(Color.WHITE);
             g.drawString(currentPlayer.getName() + "'s Hand: " + currentPlayer.getHandValue(), x, y);
@@ -119,8 +118,6 @@ public class BlackJackGame {
 
     private void onHit() {
         Player currentPlayer = players.get(currentPlayerIndex);
-
-        // Prevent hitting if Double Aces were at the start
         currentPlayer.addCard(deck.draw());
         if (currentPlayer.getHandValue() >= 21) {
             onStay();
