@@ -25,13 +25,9 @@ public class Deck {
     // Draw a card from top of deck
     public Card draw() {
         if (cards.isEmpty()) {
-            throw new IllegalStateException("The deck is empty!");
+            return new Card("None", "None");
         }
-        return cards.remove(cards.size() - 1);  // Draw from the top
+        return cards.remove(cards.size() - 1);
     }
 
-    // Get the remaining cards in deck
-    public int size() {
-        return cards.size();
-    }
 }
