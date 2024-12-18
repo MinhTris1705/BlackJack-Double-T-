@@ -45,7 +45,7 @@ public class BlackJackGame {
         if (dealer.hasBlackjack()) {
             String message = "Dealer has a Blackjack and wins!";
             new ResultBoard(message, this);
-            return; // End game if the dealer has Blackjack
+            return;
         }
 
         currentPlayerIndex = 0;
@@ -57,11 +57,7 @@ public class BlackJackGame {
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-
-        // Center the window on the screen
         frame.setLocationRelativeTo(null);
-
-        // Game Panel
         gamePanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -72,7 +68,6 @@ public class BlackJackGame {
         };
         frame.add(gamePanel, BorderLayout.CENTER);
 
-        // Button Panel
         buttonPanel = new JPanel();
         hitButton = new JButton("Hit");
         stayButton = new JButton("Stay");
@@ -80,7 +75,6 @@ public class BlackJackGame {
         buttonPanel.add(stayButton);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
-        // Button Actions
         hitButton.addActionListener(e -> onHit());
         stayButton.addActionListener(e -> onStay());
 
@@ -102,8 +96,6 @@ public class BlackJackGame {
 
     private void drawHands(Graphics g) {
         int x = 20, y = 20;
-
-        // Draw dealer's hand (if it's dealer's turn)
         if (dealerTurn) {
             g.setColor(Color.WHITE);
             g.drawString("Dealer's Hand: " + dealer.getHandValue(), x, y);
@@ -156,8 +148,6 @@ public class BlackJackGame {
 
     private void determineWinner() {
         StringBuilder result = new StringBuilder();
-
-        // Check for dealer's Blackjack first
         boolean dealerBlackjack = dealer.hasBlackjack();
 
         for (Player player : players) {
@@ -197,8 +187,6 @@ public class BlackJackGame {
                 }
             }
         }
-
-        // Display the result message
         new ResultBoard(result.toString(), this);
     }
 
@@ -212,10 +200,10 @@ public class BlackJackGame {
 
     public void dispose() {
         if (frame != null) {
-            frame.dispose(); // Safely dispose of the current frame
-            frame = null; // Reset frame to avoid reusing an uninitialized object
+            frame.dispose();
+            frame = null;
         }
-        currentGame = null; // Reset the static reference
+        currentGame = null;
     }
 
 }

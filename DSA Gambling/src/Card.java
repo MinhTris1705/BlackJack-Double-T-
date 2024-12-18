@@ -11,22 +11,13 @@ public class Card {
         this.suit = suit;
         this.image = loadImage(value, suit);
     }
-
-    public String getValue() {
-        return value;
-    }
-
-    public String getSuit() {
-        return suit;
-    }
-
     public int getNumericValue() {
         if ("JQK".contains(value)) {
-            return 10;  // Jack, Queen, King = 10
+            return 10;
         } else if (value.equals("A")) {
-            return 11;  // Ace initially counts as 11
+            return 11;
         } else {
-            return Integer.parseInt(value);  // Numeric cards (2-10)
+            return Integer.parseInt(value);
         }
     }
 
@@ -35,8 +26,8 @@ public class Card {
     }
 
     private Image loadImage(String value, String suit) {
-        String suitAbbreviation = getSuitAbbreviation(suit);  // Get the suit (C, D, H, S)
-        String imageName = value + "-" + suitAbbreviation + ".png";  // Create the image name
+        String suitAbbreviation = getSuitAbbreviation(suit);
+        String imageName = value + "-" + suitAbbreviation + ".png";
         // Use getClass().getResource() to load the image
         ImageIcon icon = new ImageIcon(getClass().getResource("cards/" + imageName));
         if (icon.getImageLoadStatus() != MediaTracker.COMPLETE) {
@@ -44,8 +35,6 @@ public class Card {
         }
         return icon.getImage();
     }
-
-    // Convert suit name to abbreviation
     private String getSuitAbbreviation(String suit) {
         switch (suit) {
             case "Clubs":

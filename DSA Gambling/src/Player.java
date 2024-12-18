@@ -47,7 +47,7 @@ public class Player {
                 }
             }
         }
-        return false; // Not a blackjack
+        return false;
     }
 
     public int getHandValue(){

@@ -14,8 +14,8 @@ public class ResultBoard {
 
         JTextArea resultArea = new JTextArea(message);
         resultArea.setFont(new Font("Arial", Font.BOLD, 16));
-        resultArea.setEditable(false); // Disable editing
-        resultArea.setBackground(frame.getBackground()); // Match frame background
+        resultArea.setEditable(false);
+        resultArea.setBackground(frame.getBackground());
         resultArea.setMargin(new Insets(10, 10, 10, 10));
         JScrollPane scrollPane = new JScrollPane(resultArea);
         frame.add(scrollPane, BorderLayout.CENTER);
@@ -44,12 +44,12 @@ public class ResultBoard {
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
         if (parentGame.getPlayerCount() == 1) {
-            Player singlePlayer = parentGame.getPlayers().get(0); // Get the single player
+            Player singlePlayer = parentGame.getPlayers().get(0);
             String handValueMessage = "\nHand Value: " + singlePlayer.getHandValue();
             if (singlePlayer.isBusted()) {
                 handValueMessage += " (Busted)";
             }
-            resultArea.append(handValueMessage); // Append directly to the JTextArea
+            resultArea.append(handValueMessage);
         }
 
         ArrayList<Player> players = parentGame.getPlayers();
@@ -71,13 +71,12 @@ public class ResultBoard {
 
     }
 
-    private static final int BUSTED_HAND_VALUE = Integer.MIN_VALUE; // Use a constant for busted players
+    private static final int BUSTED_HAND_VALUE = Integer.MIN_VALUE;
 
     private void rankPlayers(ArrayList<Player> players) {
-        // Selection Sort implementation to sort players by hand value (descending)
         int n = players.size();
         for (int i = 0; i < n - 1; i++) {
-            int maxIndex = i; // Assume the max is the first element
+            int maxIndex = i;
             for (int j = i + 1; j < n; j++) {
                 Player p1 = players.get(maxIndex);
                 Player p2 = players.get(j);
@@ -85,7 +84,6 @@ public class ResultBoard {
                 int handValue1;
                 int handValue2;
 
-                // Assign hand values, using the constant for busted players
                 if (p1.isBusted()) {
                     handValue1 = BUSTED_HAND_VALUE;
                 } else {
@@ -98,30 +96,24 @@ public class ResultBoard {
                     handValue2 = p2.getHandValue();
                 }
 
-                // If the current player has a higher hand value, update maxIndex
                 if (handValue2 > handValue1) {
                     maxIndex = j;
                 }
             }
-            // Swap the found maximum element with the first element
             if (maxIndex != i) {
                 Player temp = players.get(i);
                 players.set(i, players.get(maxIndex));
                 players.set(maxIndex, temp);
             }
         }
-
-        // Assign ranks after sorting
         int rank = 1;
         for (int i = 0; i < players.size(); i++) {
             if (i > 0) {
                 Player previousPlayer = players.get(i - 1);
                 Player currentPlayer = players.get(i);
-
                 int previousValue;
                 int currentValue;
 
-                // Assign hand values for rank comparison
                 if (previousPlayer.isBusted()) {
                     previousValue = BUSTED_HAND_VALUE;
                 } else {
@@ -134,12 +126,11 @@ public class ResultBoard {
                     currentValue = currentPlayer.getHandValue();
                 }
 
-                // If the current player has a different score, increase the rank
                 if (currentValue != previousValue) {
                     rank = i + 1;
                 }
             }
-            players.get(i).setRank(rank); // Set the rank for the player
+            players.get(i).setRank(rank);
         }
     }
 }
