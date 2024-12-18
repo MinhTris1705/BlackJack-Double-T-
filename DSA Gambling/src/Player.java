@@ -66,11 +66,6 @@ public class Player {
         return handValue > 21;
     }
 
-    public void printHand(){
-        System.out.println(name+ "s Hand: " + hand);
-        System.out.println("Hand Value: " + handValue);
-    }
-
     public int getRank(){
         return rank;
     }
